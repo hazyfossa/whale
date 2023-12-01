@@ -1,0 +1,5 @@
+paramiko
+docker
+typer[all]
+tomli_w
+attrs
