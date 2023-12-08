@@ -1,9 +1,8 @@
+from functools import wraps
+from inspect import signature
 from os import PathLike
 from os.path import expanduser
 from typing import Tuple
-
-from inspect import signature
-from functools import wraps
 
 LOCAL = True
 

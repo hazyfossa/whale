@@ -3,10 +3,9 @@ from os.path import isfile
 from tomllib import load as load_toml
 
 from attrs import define as setting
-from tomli_w import dump as dump_toml
-
-from .common import cli_exception, userpath
+from common import cli_exception, userpath
 from rich.prompt import Prompt
+from tomli_w import dump as dump_toml
 
 # TODO recreate this
 # with open(userpath("~/.ssh/config"), "r") as f:

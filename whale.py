@@ -1,13 +1,13 @@
+from math import ceil
 from typing import Generator
+
 from paramiko import Channel
+from rich.progress import track
+from typer import Option, run
 from typing_extensions import Annotated, Optional
 
-from typer import Option, run
-from utils import Config, get_image, connect
+from utils import Config, connect, get_image
 from utils.common import format_bytes
-from rich.progress import track
-
-from math import ceil
 
 config = Config()
 
