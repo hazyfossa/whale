@@ -2,6 +2,9 @@ from os import PathLike
 from os.path import expanduser
 from typing import Tuple
 
+from inspect import signature
+from functools import wraps
+
 LOCAL = True
 
 
@@ -15,6 +18,26 @@ def userpath(path: str) -> PathLike:
 def cli_exception(reason):
     print(reason)
     exit(code=1)
+
+
+def abort_on_failure(text: str = "Непредвиденная ошибка: {}", exception=Exception, format_with_args: bool = False):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+
+            except exception as e:
+                if format_with_args:
+                    info = signature(func).bind(*args, **kwargs).arguments
+                    cli_exception(text.format(**info))
+
+                else:
+                    cli_exception(text)
+
+        return wrapper
+
+    return decorator
 
 
 def format_bytes(size: int) -> Tuple[int, str]:
