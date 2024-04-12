@@ -1,4 +1,4 @@
-from common import abort_on_failure
+from .common import abort_on_failure
 from docker import DockerClient
 from docker import from_env as get_docker
 from docker.errors import DockerException, ImageNotFound

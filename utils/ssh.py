@@ -1,5 +1,4 @@
-from paramiko import (AuthenticationException, AutoAddPolicy, SSHClient,
-                      SSHConfig)
+from paramiko import AuthenticationException, AutoAddPolicy, SSHClient
 
 from .common import cli_exception
 
